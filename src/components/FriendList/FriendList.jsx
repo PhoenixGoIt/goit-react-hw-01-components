@@ -6,7 +6,9 @@ export const FriendList = ({ friends }) => {
     return (
         <div className={css.friends}>
           <ul className={css.friends__list}>
-          <FriendLi friends={friends}/>
+          {friends.map(({ avatar, name, isOnline, id }) => (
+          <FriendLi  avatar={avatar} name={name} isOnline={isOnline} id={id} />
+          ))}
           </ul>
         </div>
       );
@@ -18,10 +20,3 @@ FriendList.prototype = {
     isOnline: PropTypes.bool.isRequired,
     id: PropTypes.number.isRequired,
 };
-//{friends.map(({ avatar, name}) => {
-//    <li className="item">
-//    <span className="status">Yes</span>
-//    <img className="avatar" src={avatar} alt="User avatar" width="48" />
-//    <p className="name">{name}</p>
-//  </li>
-//})}
